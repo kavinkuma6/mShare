@@ -1,0 +1,30 @@
+<button (click)="reset()">reset</button>
+<div class="flex grid-laout example-boundary">
+  <ng-container *ngFor="let c of cards">
+    <div
+      cdkDragBoundary=".example-boundary"
+      cdkDrag
+      [cdkDragFreeDragPosition]="c.position"
+      (cdkDragEnded)="dragEnded_new($event)"
+      (cdkDragMoved)="cdkDragMoved()"
+      class="card-container"
+    >
+      <i [id]="'e' + c.no" class="fas fa-3x fa-caret-square-left back-icon"></i>
+      <div class="view-area">
+        <h1 class="title">{{ data.title }}</h1>
+        <div class="body">
+          <li *ngFor="let s of data.subTitles" class="sub-content">
+            <h2 class="sub-title">{{ s.subTitle }}</h2>
+            <p class="sub-body">
+              {{ s.subBody }}
+            </p>
+            <i
+              [id]="'s' + c.no"
+              class="fas fa-2x fa-rotate-270 fa-neuter next-icon"
+            ></i>
+          </li>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

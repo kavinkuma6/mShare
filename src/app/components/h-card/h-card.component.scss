@@ -1,0 +1,75 @@
+.flex {
+  display: inline-block;
+  .card-container {
+    position: relative;
+    margin: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-sizing: border-box;
+    .view-area {
+      width: 400px;
+      margin: 30px 0;
+      .title {
+        position: sticky;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 15px;
+        margin-top: 0;
+        padding: 0 30px;
+      }
+      .body {
+        padding: 0 30px;
+        height: 300px;
+        overflow: auto;
+        .sub-content {
+          z-index: 1;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+            rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+          list-style: none;
+          position: relative;
+          padding: 7px 24px;
+          .sub-title {
+            margin: 5px 0;
+            font-size: 1.5rem;
+          }
+          .sub-body {
+            font-size: 1.3rem;
+          }
+          .next-icon {
+            position: absolute;
+            right: -10px;
+            top: 40%;
+            cursor: pointer;
+          }
+          &:first-of-type {
+            margin-top: 15px;
+          }
+          &:last-of-type {
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+    .back-icon {
+      position: absolute;
+      top: 50%;
+      left: -7px;
+      cursor: pointer;
+    }
+  }
+}
+
+.example-handle {
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  cursor: pointer;
+  margin: 7px;
+}
+
+.grid-laout {
+  display: grid;
+  grid-template-rows: repeat(5, auto);
+  grid-template-columns: repeat(5, auto);
+}

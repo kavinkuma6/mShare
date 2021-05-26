@@ -22,6 +22,8 @@
     "@angular/platform-browser-dynamic": "~11.2.0",
     "@angular/router": "~11.2.0",
     "leader-line": "^1.0.5",
+    "ngx-pinch-zoom": "^2.5.5",
+    "normalize.css": "^8.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

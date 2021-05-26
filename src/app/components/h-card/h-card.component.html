@@ -1,30 +1,55 @@
-<button (click)="reset()">reset</button>
-<div class="flex grid-laout example-boundary">
-  <ng-container *ngFor="let c of cards">
-    <div
-      cdkDragBoundary=".example-boundary"
-      cdkDrag
-      [cdkDragFreeDragPosition]="c.position"
-      (cdkDragEnded)="dragEnded_new($event)"
-      (cdkDragMoved)="cdkDragMoved()"
-      class="card-container"
-    >
-      <i [id]="'e' + c.no" class="fas fa-3x fa-caret-square-left back-icon"></i>
-      <div class="view-area">
-        <h1 class="title">{{ data.title }}</h1>
-        <div class="body">
-          <li *ngFor="let s of data.subTitles" class="sub-content">
-            <h2 class="sub-title">{{ s.subTitle }}</h2>
-            <p class="sub-body">
-              {{ s.subBody }}
-            </p>
-            <i
-              [id]="'s' + c.no"
-              class="fas fa-2x fa-rotate-270 fa-neuter next-icon"
-            ></i>
-          </li>
-        </div>
-      </div>
+<mat-card
+  color="accent"
+  class="card-container"
+  cdkDrag
+  [cdkDragFreeDragPosition]="c.position"
+  (cdkDragEnded)="dragEnded_new($event)"
+  (cdkDragMoved)="cdkDragMoved()"
+>
+  <mat-card-header>
+    <mat-card-title>{{ data.title }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="example-action-buttons">
+      <button color="primary" (click)="accordion?.openAll()" mat-raised-button>
+        Expand All
+      </button>
+      <button color="accent" (click)="accordion?.closeAll()" mat-raised-button>
+        Collapse All
+      </button>
     </div>
-  </ng-container>
-</div>
+    <button class="square-left-icon" color="accent" mat-icon-button>
+      <mat-icon fontSet="fa" class="fas fa-2x" fontIcon="fa-caret-square-left">
+      </mat-icon>
+    </button>
+    <div class="mat-overflow">
+      <mat-accordion multi>
+        <ng-container *ngFor="let s of data.subTitles" class="sub-content">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <strong>
+                  {{ s.subTitle }}
+                </strong>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="collapsed-text">
+              <p>
+                {{ s.subBody }}
+              </p>
+            </div>
+            <button class="next-link-icon" color="accent" mat-icon-button>
+              <mat-icon
+                fontSet="fa"
+                class="fas fa-2x fa-rotate-270"
+                fontIcon="fa-neuter"
+              >
+              </mat-icon>
+            </button>
+          </mat-expansion-panel>
+          <mat-divider [inset]="true"></mat-divider>
+        </ng-container>
+      </mat-accordion>
+    </div>
+  </mat-card-content>
+</mat-card>

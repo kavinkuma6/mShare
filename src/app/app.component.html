@@ -1,3 +1,7 @@
-<pinch-zoom>
+<pinch-zoom
+  [wheel]="false"
+  [transition-duration]="200"
+  [disableZoomControl]="'disable'"
+>
   <app-h-card></app-h-card>
 </pinch-zoom>
